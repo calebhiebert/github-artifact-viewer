@@ -179,7 +179,7 @@ func downloadArchive(url, token string, expectedSize int64) ([]byte, error) {
 
 	req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", token))
 
-	resp, err := (&http.Client{Timeout: 60 * time.Second}).Do(req)
+	resp, err := (&http.Client{Timeout: 5 * time.Hour}).Do(req)
 	if err != nil {
 		return nil, err
 	}
